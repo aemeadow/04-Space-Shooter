@@ -10,7 +10,7 @@ var velocity = Vector2(0,0)
 
 onready var VP = get_viewport_rect().size
 
-onready var Bullet = load("res://Scenes/Bullets.tscn")
+onready var Bullet = load("res://Bullet.tscn")
 
 signal health_changed
 signal score_changed
@@ -37,6 +37,7 @@ func _physics_process(delta):
 		var b = Bullet.instance()
 		b.position = position
 		b.position.y -= 25
+		get_node("/root/Game/Bullets").add_child(b)
 	if Input.is_action_pressed("Left"):
 		velocity.x -= acceleration
 	if Input.is_action_pressed("Right"):

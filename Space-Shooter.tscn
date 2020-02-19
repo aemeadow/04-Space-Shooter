@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/planet6.png" type="Texture" id=4]
 [ext_resource path="res://assets/a10001.png" type="Texture" id=5]
 [ext_resource path="res://assets/flashtestship.png" type="Texture" id=6]
-[ext_resource path="res://Bullets.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Bullets.gd" type="Script" id=7]
 [ext_resource path="res://Explosions.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/b10005.png" type="Texture" id=17]
 [ext_resource path="res://assets/b10006.png" type="Texture" id=18]
@@ -144,8 +144,7 @@ scale = Vector2( 0.3, 0.3 )
 polygon = PoolVector2Array( 15, -109.6, 45, -102.6, 45, -101.2, 66, -90.2, 66, -88.9, 87, -69.9, 87, -67.7, 98, -53.7, 98, -51.5, 107, -32.4, 107, -28, 111, -13.3, 111, 14, 109.6, 14, 102.6, 44, 101.1, 44, 87.2, 69, 85.8, 69, 64.8, 90, 62.5, 90, 32.5, 106, 28.1, 106, 13.3, 110, -14, 110, -14, 108.7, -33, 105.7, -33, 104.2, -65, 89.3, -65, 87.9, -87, 67.9, -87, 65.6, -102, 42.6, -102, 39.3, -110, 12.3, -110, -13.3, -101.5, -45, -100.2, -45, -89.2, -66, -87.8, -66, -63.9, -91, -61.5, -91, -37.5, -105, -34.4, -105, -14, -109.6, -14, -111, 15, -111 )
 
 [node name="Bullets" type="Node2D" parent="."]
-
-[node name="Bullets" parent="Bullets" instance=ExtResource( 7 )]
+script = ExtResource( 7 )
 
 [node name="Enemy Bullets" type="Node2D" parent="."]
 
@@ -187,7 +186,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Meteors/Meteor2"]
 frames = SubResource( 1 )
 animation = "meteor4"
-frame = 25
+frame = 18
 playing = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Meteors/Meteor2"]
@@ -202,7 +201,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Meteors/Meteor3"]
 frames = SubResource( 1 )
 animation = "meteor4"
-frame = 25
+frame = 18
 playing = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Meteors/Meteor3"]
