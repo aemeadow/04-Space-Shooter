@@ -6,7 +6,7 @@ export var speed = 2
 export var move_probability = 0.07
 export var fire_probability = 0.3
 
-onready var Bullet2 = load("res://Scenes/Bullet2")
+onready var Bullet2 = load("res://Bullet2.tscn")
 
 var ready = false
 var new_position = Vector2(0,0)
@@ -38,4 +38,4 @@ func _on_Timer_timeout():
 		var b = Bullet2.instance()
 		b.position = position 
 		b.position.y += 25
-		get_node("/root/Game/Bullet2").add_child(b)
+		get_node("/root/Game/Enemy Bullets").add_child(b)

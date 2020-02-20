@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 export var speed = 500
-onready var Explosion = load("res://Scenes/Explosions.tscn")
-onready var Player = get_node("root/Game/ScriptSpaceship")
+onready var Explosion = load("res://Explosions.tscn")
+onready var Player = get_node("/root/Game/Player")
 
 func _ready():
 	contact_monitor = true
@@ -15,7 +15,7 @@ func _physics_process(delta):
 		var explosion = Explosion.instance()
 		explosion.position = position
 		explosion.get_node("Sprite").playing = true
-		get_node("/root/Game/Explosions").add_child(explosion)
+		get_node("/root/Game/explosion").add_child(explosion)
 		if c.get_parent().name == "Enemies":
 			Player.change_score(c.score)
 			c.die()

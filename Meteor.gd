@@ -5,7 +5,7 @@ export var min_speed = 100
 export var max_speed = 600
 export var damage = 50
 
-onready var Explosion = load("res://Scenes/Explosions.tscn")
+onready var Explosion = load("res://Explosions.tscn")
 
 func _ready():
 	randomize()
@@ -20,8 +20,8 @@ func _physics_process(delta):
 	for c in colliding:
 		var explosion = Explosion.instance()
 		explosion.position = position
-		explosion.get_model("Sprite").playing = true
-		get_node("/root/Game/Explosions").add_child(explosion)
+		explosion.get_node("Sprite").playing = true
+		get_node("/root/Game/explosion").add_child(explosion)
 		if c.name == "Player":
 			c.change_health(-damage)
 		queue_free()
@@ -29,6 +29,6 @@ func _physics_process(delta):
 	if position.y > get_viewport_rect().size.y + 50:
 		queue_free()
 		
-func integrate_forces(state):
-	#state.set_linear_velocity(velocity)
+func _integrate_forces(state):
+	state.set_linear_velocity(velocity)
 	pass
