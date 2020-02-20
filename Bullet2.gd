@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 export var speed = 500
+export var damage = 10
 onready var Explosion = load("res://Scenes/Explosions.tscn")
 onready var Player = get_node("root/Game/ScriptSpaceship")
 
@@ -16,10 +17,12 @@ func _physics_process(delta):
 		explosion.position = position
 		explosion.get_node("Sprite").playing = true
 		get_node("/root/Game/Explosions").add_child(explosion)
-		if c.get_parent().name == "Enemies":
-			Player.change_score(c.score)
-			c.die()
+		if c.get_parent().name == "Player":
+			Player.change_health(damage)
 		queue_free()
+		
+		if position.y > get_viewport_rect().size.y + 10:
+			queue_free()
 
 func _integrate_forces(state):
 	state.set_linear_velocity(Vector2(0,-speed))
